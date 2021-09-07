@@ -1,5 +1,10 @@
 runtime: nodejs14
 
+env_variables:
+  GCS_BUCKET=booklovers
+  GCLOUD_PROJECT=booklovers-v1
+  GCS_KEYFILE=config/booklovers-v1-5606eddf4394.json
+
 handlers:
   - url: /public
     static_dir: public
