@@ -1,0 +1,41 @@
+extends layout
+
+block content 
+  main.container-fluid
+    div.container
+      h1.text-center Welcome to Book Lovers
+      h5.text-center.fst-italic For the Love of Good Books
+      button(type="button" class="d-block btn btn-primary mx-auto" data-bs-toggle="modal" data-bs-target="#bookform") Add Book
+      div(class="modal fade text-dark" data-bs-backdrop="static" data-bs-keyboard="false" id="bookform")
+        div(class="modal-dialog")
+          div.modal-content
+            div.modal-header
+              h5.modal-title Add Book
+              button(data-bs-dismiss="modal" class="btn-close" type="button")
+            div.modal-body
+              form(method="POST" action="/books/add" enctype="multipart/form-data" )
+                div.mb-3
+                  label(for="file") Cover Image
+                  input(type="file" id="file" name="cover" class="form-control")
+                div.mb-3
+                  label(for="title" class="form-label") Title
+                  input(id="title" name="title" class="form-control")
+                div.mb-3
+                  label(for="author" class="form-label") Author
+                  input(id="author" name="author" class="form-control")
+                div.mb-3
+                  label(for="year" class="form-label") Year
+                  input(id="year" type="number" name="year" class="form-control")
+
+                button(type="submit" class="btn btn-primary ms-auto d-block") Submit
+
+    if books.length
+      div.container
+        h2 Popular Books
+        div.row.row-cols-auto
+          each book in books
+            div.col
+              div(class="card bg-dark" style="width: 200px;")
+                img(class="card-img-top img-fluid" src=`${book.imageUrl}` style="height:200px")
+                div.card-footer 
+                  h6.card-text #{book.title}

@@ -1,0 +1,29 @@
+{
+  "name": "booklovers",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app",
+    "dev": "cross-env NODE_ENV=development nodemon app",
+    "test": "mocha --timeout 10000"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^6.0.4",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.3",
+    "multer-google-storage": "^1.3.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "mocha": "^9.1.1",
+    "nodemon": "^2.0.12"
+  }
+}
