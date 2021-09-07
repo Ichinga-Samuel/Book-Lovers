@@ -10,6 +10,7 @@ router.get('/', async (req, res, next) => {
   res.render('index', {books: books});
   }
   catch(e){
+    console.log('feeeee')
     res.status(502)
     res.redirect('/')
   }

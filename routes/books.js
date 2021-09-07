@@ -11,12 +11,16 @@ router.get('/', async (req, res) => {
 
 router.post('/add', uploader.single('cover'), async (req, res) => {
   try{
-    let body = {...req.body, imageUrl: req.file.path}
+    let body = req.body
+    if(req.file){
+      body = {...req.body, imageUrl: req.file.path}
+    }
     let b = await book.create(body)
     res.status(201);
     res.redirect('/');
   }
   catch(e){
+    console.log('error')
     res.status(502).send('An Error Occured')
   }
   
