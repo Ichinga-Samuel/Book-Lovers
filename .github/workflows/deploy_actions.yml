@@ -35,5 +35,5 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT }}
           credentials: ${{ secrets.GCP_SA_KEY }}
           promote: false
-          version: v6
+          version: v7
 
