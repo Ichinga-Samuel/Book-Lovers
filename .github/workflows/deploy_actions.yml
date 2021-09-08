@@ -11,14 +11,15 @@ jobs:
 
       - name: Load Config Files
         run: |
-          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > config/gae.env
-          echo "${{secrets.GCP_SA_KEY }}" > config/booklovers-v1-5606eddf4394.json
+          echo "${{secrets.GAE_CONFIG}}" | base64 --decode > config/gae.env 
+          echo "${{secrets.GCP_SA_KEY}}" > config/booklovers-v1-5606eddf4394.json
          
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      
+          
+      - run: cat config/booklovers-v1-5606eddf4394.json
       - run: npm install
       - run: npm run test
       
@@ -35,5 +36,5 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT }}
           credentials: ${{ secrets.GCP_SA_KEY }}
           promote: false
-          version: v3
+          version: v5
 
