@@ -13,7 +13,7 @@ router.post('/add', uploader.single('cover'), async (req, res) => {
   try{
     let body = req.body
     if(req.file){
-      body = {...req.body, imageUrl: req.file.path}
+      body = {...req.body, imageUrl: req.file.linkUrl}
     }
     let b = await book.create(body)
     res.status(201);

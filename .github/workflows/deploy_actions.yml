@@ -18,8 +18,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-          
-      - run: cat config/booklovers-v1-5606eddf4394.json
+
       - run: npm install
       - run: npm run test
       
@@ -36,5 +35,5 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT }}
           credentials: ${{ secrets.GCP_SA_KEY }}
           promote: false
-          version: v5
+          version: v6
 
