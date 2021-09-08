@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - run: npm install
       - run: npm run test
@@ -34,6 +34,6 @@ jobs:
           deliverables: app.yaml
           project_id: ${{ secrets.GCP_PROJECT }}
           credentials: ${{ secrets.GCP_SA_KEY }}
-          promote: false
-          version: v7
+          promote: true
+          version: v1
 
